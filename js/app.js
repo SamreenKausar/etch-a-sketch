@@ -1,16 +1,20 @@
 const canvas = document.querySelector("#canvas");
 const container = document.querySelector(".container");
 const size = document.querySelector("#size");
-const gridLength = 16;//default grid dimension
+let gridLength = 16;//default grid dimension
 
 // Creating Grid
 createGrid(gridLength);
+let pixel = document.querySelectorAll(".pixel");
+paint(pixel);
 //getting size of grid
 
 size.addEventListener('click', ()=>{
         canvas.textContent = '';
         gridlength = prompt('Please enter size of the grid');
         createGrid(gridlength);
+        pixel = document.querySelectorAll(".pixel");
+        paint(pixel);
 })
 
 function createGrid(l){
@@ -29,13 +33,15 @@ function createGrid(l){
 
 
 // coloring the grid
-const pixel = document.querySelectorAll(".pixel");
-
-pixel.forEach((pix)=>{
-    pix.addEventListener('mouseover', (e)=>{
-      console.log( e.target);
+function paint (pixel){
+    pixel.forEach(pix => {
+        pix.addEventListener('mouseover', (e)=>{
+            e.target.classList.add('brush');            
+        });
     });
-});
+}
+
+
 
 
 
