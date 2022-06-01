@@ -5,7 +5,13 @@ const gridLength = 16;//default grid dimension
 
 // Creating Grid
 createGrid(gridLength);
+//getting size of grid
 
+size.addEventListener('click', ()=>{
+        canvas.textContent = '';
+        gridlength = prompt('Please enter size of the grid');
+        createGrid(gridlength);
+})
 
 function createGrid(l){
     for(j=0; j<l; j++){
