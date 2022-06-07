@@ -1,5 +1,6 @@
 const canvas = document.querySelector("#canvas");
 const container = document.querySelector(".container");
+const random = document.querySelector("#random");
 const size = document.querySelector("#size");
 let gridLength = 16;//default grid dimension
 
@@ -36,12 +37,20 @@ function createGrid(l){
 function paint (pixel){
     pixel.forEach(pix => {
         pix.addEventListener('mouseover', (e)=>{
-            e.target.classList.add('brush');            
+           
+            e.target.classList.add('brush'); 
+            e.target.style.backgroundColor = random_rgba();          
         });
     });
 }
 
+function random_rgba() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return`rgb(${r},${g},${b})`;
 
+}
 
 
 
